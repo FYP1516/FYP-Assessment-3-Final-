@@ -19,11 +19,11 @@ smp_size <- floor(1 * nrow(model_data))
 ## set the seed to make your partition reproductible
 set.seed(123)
 train_ind <- sample(seq_len(nrow(model_data)), size = smp_size)
-train_ind2 <- sample(seq_len(nrow(model_data2)), size = smp_size)
+test_ind2 <- sample(seq_len(nrow(model_data2)), size = smp_size)
 
 ## split the data
 train <- model_data[train_ind, ]
-test <- model_data[train_ind2, ]
+test <- model_data[test_ind2, ]
 
 ## what to use in the model
 predictors <- train[,which(!names(train) %in% c("BMI","Foodcourtvisited"))]
